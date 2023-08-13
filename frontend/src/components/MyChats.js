@@ -55,17 +55,15 @@ export default function MyChats({fetchAgain}) {
     >
       <Box
         py={2}
-        px={2}
+        mb={1}
         fontSize="18px"
         fontFamily="Work sans"
         display="flex"
-        bg="rgb(237, 242, 247)"
         w="100%"
-        borderRadius="lg"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontWeight="semibold">Chats</Text>
+        <Text fontWeight="extrabold" fontSize="24px" pl={2}>Chats</Text>
         
         <GroupChatModal>
           <Button
@@ -83,7 +81,6 @@ export default function MyChats({fetchAgain}) {
         pb={2}
         w="100%"
         h="100%"
-        borderRadius="lg"
         overflowY="hidden"
       >
         {!loading ? (
