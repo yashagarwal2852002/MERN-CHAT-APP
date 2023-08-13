@@ -81,7 +81,6 @@ export default function MyChats({fetchAgain}) {
         display="flex"
         flexDir="column"
         pb={2}
-        pt={2}
         w="100%"
         h="100%"
         borderRadius="lg"
@@ -109,7 +108,7 @@ export default function MyChats({fetchAgain}) {
                   bg="#E8E8E8"
                   p="1px"
                   cursor="pointer"
-                  name={!chat.isGroupChat ? getSenderFull(loggedUser, chat.users).name : chat.chatName}
+                  name={!chat.isGroupChat ? getSender(loggedUser, chat.users) : chat.chatName}
                   src={!chat.isGroupChat ? getSenderFull(loggedUser, chat.users).pic : "https://icons.veryicon.com/png/o/commerce-shopping/soft-designer-online-tools-icon/group-38.png"}
                 />
                 <Box>
