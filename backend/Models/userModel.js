@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     pic: {type: String, default: 
-    "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"},
+    "https://res.cloudinary.com/dh5t9kdow/image/upload/v1691950949/user_oiawrp.jpg"},
 },
 {
     timestamps: true
