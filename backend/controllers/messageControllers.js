@@ -1,6 +1,6 @@
 const Chat = require('../Models/chatModel');
 const User = require('../Models/userModel');
-const Message = require('../models/messageModel');
+const Message = require('../Models/messageModel');
 
 const sendMessage = async(req, res)=>{
     const {content, chatId} = req.body;
