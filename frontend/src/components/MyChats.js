@@ -82,7 +82,6 @@ export default function MyChats({fetchAgain}) {
         flexDir="column"
         pb={2}
         pt={2}
-        bg="#F8F8F8"
         w="100%"
         h="100%"
         borderRadius="lg"
