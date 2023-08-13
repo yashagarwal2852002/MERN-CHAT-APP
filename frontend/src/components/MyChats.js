@@ -1,10 +1,10 @@
-import { Box, Button, Stack, Text, useToast } from '@chakra-ui/react';
+import { Avatar, Box, Button, Stack, Text, useToast } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { ChatState } from '../Context/ChatProvider';
 import axios from 'axios';
 import { AddIcon } from '@chakra-ui/icons';
 import ChatLoading from './ChatLoading';
-import { getSender } from '../config/Chatlogics';
+import { getSender, getSenderFull } from '../config/Chatlogics';
 import GroupChatModal from './miscellaneous/GroupChatModal';
 
 export default function MyChats({fetchAgain}) {
@@ -54,16 +54,19 @@ export default function MyChats({fetchAgain}) {
       border="none"
     >
       <Box
-        pb={2}
+        py={2}
         px={2}
-        fontSize="16px"
+        fontSize="18px"
         fontFamily="Work sans"
         display="flex"
+        bg="rgb(237, 242, 247)"
         w="100%"
+        borderRadius="lg"
         justifyContent="space-between"
         alignItems="center"
       >
-        Chats
+        <Text fontWeight="semibold">Chats</Text>
+        
         <GroupChatModal>
           <Button
             display="flex"
@@ -77,9 +80,8 @@ export default function MyChats({fetchAgain}) {
       <Box
         display="flex"
         flexDir="column"
-        p={2}
-        pb={3}
-        pt={3}
+        pb={2}
+        pt={2}
         bg="#F8F8F8"
         w="100%"
         h="100%"
@@ -87,23 +89,42 @@ export default function MyChats({fetchAgain}) {
         overflowY="hidden"
       >
         {!loading ? (
-          <Stack overflowY="scroll">
+          <Stack overflowY="scroll" gap={0}>
             {chats.map((chat) => (
               <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
+                bg={selectedChat === chat ? "#38B2AC" : "white"}
                 color={selectedChat === chat ? "white" : "black"}
-                px={3}
+                px={1}
                 py={2}
-                borderRadius="lg"
+                borderBottom="1px solid #d2cecea3"
+                display="flex"
+                alignItems="center"
+                w="100%"
                 key={chat._id}
               >
-                <Text>
-                  {!chat.isGroupChat
-                    ? getSender(loggedUser, chat.users)
-                    : chat.chatName}
-                </Text>
+                <Avatar
+                  mr={3}
+                  size="md"
+                  bg="#E8E8E8"
+                  p="1px"
+                  cursor="pointer"
+                  name={getSenderFull(loggedUser, chat.users).name}
+                  src={!chat.isGroupChat ? getSenderFull(loggedUser, chat.users).pic : "https://icons.veryicon.com/png/o/commerce-shopping/soft-designer-online-tools-icon/group-38.png"}
+                />
+                <Box>
+                  <Text fontWeight="400" mt="-1px">
+                    {!chat.isGroupChat
+                      ? getSender(loggedUser, chat.users)
+                      : chat.chatName}
+                  </Text>
+                  <Text fontSize="13px" fontWeight="400px" fontFamily='"Segoe UI", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Ubuntu, Cantarell, "Fira Sans", sans-serif'>
+                    {!chat.isGroupChat
+                      ? getSender(loggedUser, chat.users)
+                      : chat.chatName}
+                  </Text>
+                </Box>
               </Box>
             ))}
           </Stack>
