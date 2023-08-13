@@ -48,23 +48,22 @@ export default function MyChats({fetchAgain}) {
       display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
       flexDir="column"
       alignItems="center"
-      p={3}
+      p={2}
       bg="white"
       w={{ base: "100%", md: "31%" }}
-      borderRadius="lg"
-      borderWidth="1px"
+      border="none"
     >
       <Box
-        pb={3}
-        px={3}
-        fontSize="17px"
+        pb={2}
+        px={2}
+        fontSize="16px"
         fontFamily="Work sans"
         display="flex"
         w="100%"
         justifyContent="space-between"
         alignItems="center"
       >
-        My Chats
+        Chats
         <GroupChatModal>
           <Button
             display="flex"
@@ -78,7 +77,9 @@ export default function MyChats({fetchAgain}) {
       <Box
         display="flex"
         flexDir="column"
-        p={3}
+        p={2}
+        pb={3}
+        pt={3}
         bg="#F8F8F8"
         w="100%"
         h="100%"

@@ -16,7 +16,7 @@ export default function ChatPage() {
         justifyContent = 'space-between'
         w = '100%'
         h = '91.5vh'
-        p = '10'
+        padding={{base: "1px", md : "15px"}}
       >
         {user && <MyChats fetchAgain = {fetchAgain}/>}
         {user && <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>}
